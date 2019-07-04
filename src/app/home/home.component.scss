@@ -1,0 +1,42 @@
+@import "./../_scss/variables.scss";
+@import "./../_scss/mixin.scss";
+
+.home-menu {
+  background-color: $color-white-1;
+  .menu__image {
+    img {
+      @include box(50px, 50px);
+    }
+  }
+  .menu__button {
+    i {
+      color: $color-black-1;
+    }
+  }
+  .menu__navbar {
+    transition: 0.5s ease-in;
+    
+    @include screen(medium) {
+      display: flex;
+      justify-content: space-between;
+      @include space(margin, left, $medium);
+    }
+    .navbar__left,
+    .navbar__right {
+      a {
+        @include text(unset, $fs-1-25, $fw-5);
+        @include space(padding, all, $small);
+        text-align: center;
+        @include screen (medium) {
+            @include text(unset, $fs-0-90, $fw-5);
+        }
+      }
+    }
+    .navbar__left {
+      color: $color-black-1;
+    }
+    .navbar__right {
+      color: $color-grey-1;
+    }
+  }
+}

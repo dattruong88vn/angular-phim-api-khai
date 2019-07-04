@@ -1,0 +1,95 @@
+@import "./variables.scss";
+
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin text($color, $fs, $fw) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+@mixin space($type: margin, $direction: all, $amount: $medium) {
+  @if $type == margin {
+    @if $direction == all {
+      margin: $amount;
+    } @else if $direction == x {
+      margin-left: $amount;
+      margin-right: $amount;
+    } @else if $direction == y {
+      margin-top: $amount;
+      margin-bottom: $amount;
+    } @else if $direction == top {
+      margin-top: $amount;
+    } @else if $direction == right {
+      margin-right: $amount;
+    } @else if $direction == bottom {
+      margin-bottom: $amount;
+    } @else if $direction == left {
+      margin-left: $amount;
+    }
+  } @else if $type == padding {
+    @if $direction == all {
+      padding: $amount;
+    } @else if $direction == x {
+      padding-left: $amount;
+      padding-right: $amount;
+    } @else if $direction == y {
+      padding-top: $amount;
+      padding-bottom: $amount;
+    } @else if $direction == top {
+      padding-top: $amount;
+    } @else if $direction == right {
+      padding-right: $amount;
+    } @else if $direction == bottom {
+      padding-bottom: $amount;
+    } @else if $direction == left {
+      padding-left: $amount;
+    }
+  }
+}
+
+@mixin screen($size) {
+  $extra-small: "(max-width: 575px)";
+  $small: "(min-width: 576px)";
+  $medium: "(min-width: 768px)";
+  $large: "(min-width: 992px)";
+  $extra-large: "(min-width: 1200px)";
+
+  @if $size == $extra-small {
+    @media only screen and #{$extra-small} {
+      @content;
+    }
+  }
+  @else if $size == $small {
+    @media only screen and #{$small} {
+      @content;
+    }
+  }
+  @else if $size == medium {
+    @media only screen and #{$medium} {
+      @content;
+    }
+  }
+  @else if $size == $large {
+    @media only screen and #{$large} {
+      @content;
+    }
+  }
+  @else if $size == $extra-large {
+    @media only screen and #{$extra-large} {
+      @content;
+    }
+  }
+
+}
+
+@mixin vendor ($property, $value) {
+  #{$property}: #{$value};
+  #{'-' + 'webkit' + '-' + $property}: #{$value};
+  #{'-' + 'moz' + '-' + $property}: #{$value};
+  #{'-' + 'o' + '-' + $property}: #{$value};
+  #{'-' + 'ms' + '-' + $property}: #{$value};
+}
