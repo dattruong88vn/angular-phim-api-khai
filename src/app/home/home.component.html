@@ -12,7 +12,8 @@
             <i class="fa fa-bars"></i>
         </button>
         <!-- menu -->
-        <div class="collapse navbar-collapse menu__navbar" id="collapsibleNavbar">
+        <div class="collapse navbar-collapse menu__navbar"
+            id="collapsibleNavbar">
             <ul class="navbar-nav navbar__left">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Lịch chiếu</a>
@@ -28,11 +29,57 @@
                 </li>
             </ul>
             <ul class="navbar-nav navbar__right">
-                <li class="nav-item">
+                <li class="nav-item nav__dang-nhap">
                     <a class="nav-link" href="#">Đăng nhập</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Thành phố</a>
+                <li class="nav-item nav__thanh-pho">
+                    <div class="btn-group" dropdown>
+                        <a id="basic-link" dropdownToggle
+                            (click)='showHideMenuDropdown()'
+                            aria-controls="basic-link-dropdown">
+                            Thành phố
+                            <span *ngIf='statusDropdown; else arrowDown'>
+                                <fa name='angle-up' size='lg' class="ml-2"></fa>
+                            </span>
+                            <ng-template #arrowDown>
+                                <fa name='angle-down' size='lg' class="ml-2"></fa>
+                            </ng-template>
+                        </a>
+                        <ul id="dropdown-split" *ngIf="statusDropdown"
+                            class="dropdown-menu dropdown-menu-right"
+                            role="menu" aria-labelledby="button-split">
+                            <li role="menuitem">
+                                <a class="dropdown-item"
+                                    href="#">Hồ Chí Minh</a>
+                            </li>
+                            <li role="menuitem"><a
+                                    class="dropdown-item"
+                                    href="#">Đà Nẵng</a>
+                            </li>
+                            <li role="menuitem"><a
+                                    class="dropdown-item"
+                                    href="#">Hà Nội</a></li>
+                            <li role="menuitem"><a
+                                    class="dropdown-item"
+                                    href="#">Cần Thơ</a>
+                            </li>
+                            <li role="menuitem">
+                                <a class="dropdown-item"
+                                    href="#">Huế</a>
+                            </li>
+                            <li role="menuitem"><a
+                                    class="dropdown-item"
+                                    href="#">Hội An</a>
+                            </li>
+                            <li role="menuitem"><a
+                                    class="dropdown-item"
+                                    href="#">Quảng Bình</a></li>
+                            <li role="menuitem"><a
+                                    class="dropdown-item"
+                                    href="#">Quảng Ninh</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>

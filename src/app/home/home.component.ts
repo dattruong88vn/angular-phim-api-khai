@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  
+  statusDropdown = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showHideMenuDropdown = () => {
+    this.statusDropdown = !this.statusDropdown;
+    console.log(this.statusDropdown);
   }
 
 }

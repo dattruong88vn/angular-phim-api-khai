@@ -15,7 +15,7 @@
   }
   .menu__navbar {
     transition: 0.5s ease-in;
-    
+
     @include screen(medium) {
       display: flex;
       justify-content: space-between;
@@ -27,16 +27,124 @@
         @include text(unset, $fs-1-25, $fw-5);
         @include space(padding, all, $small);
         text-align: center;
-        @include screen (medium) {
-            @include text(unset, $fs-0-90, $fw-5);
+        @include screen(medium) {
+          @include text(unset, $fs-0-90, $fw-5);
         }
       }
     }
     .navbar__left {
       color: $color-black-1;
+      .nav-item {
+        &:hover {
+          .nav-link {
+            color: $color-primary;
+            background-color: $color-grey-2;
+            @include screen(medium) {
+              background-color: unset;
+            }
+          }
+        }
+        &:active {
+          .nav-link {
+            color: $color-green-1;
+          }
+        }
+
+        @include screen(medium) {
+          @include space(margin, x, $x-small);
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            @include box(0, 0.15rem);
+            background-color: $color-primary;
+          }
+          &:hover::after {
+            @include box(100%, 0.15rem);
+            transition: 0.3s ease-in;
+          }
+          &:active {
+            .nav-link {
+              color: $color-primary;
+            }
+          }
+        }
+      }
     }
     .navbar__right {
       color: $color-grey-1;
+      .nav-item {
+        &:hover {
+          .nav-link {
+            color: $color-primary;
+            background-color: $color-grey-2;
+            @include screen(medium) {
+              background-color: unset;
+            }
+          }
+        }
+        &:active {
+          .nav-link {
+            color: $color-green-1;
+          }
+        }
+      }
+      .nav__dang-nhap {
+        @include screen(medium) {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 15%;
+            right: 0;
+            @include box(0.1rem, 70%);
+            background-color: $color-grey-1;
+          }
+        }
+      }
+      .nav__thanh-pho {
+        display: flex;
+        justify-content: center;
+        .btn-group {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          a {
+            text-decoration: none;
+            &:hover {
+              color: $color-primary;
+              background-color: $color-grey-2;
+              @include screen(medium) {
+                background-color: unset;
+              }
+            }
+            &:active {
+              color: $color-green-1;
+            }
+          }
+          .dropdown-menu {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            @include screen(medium) {
+              display: unset;
+            }
+            .dropdown-item {
+              text-align: right;
+              @include space(padding, all, 0.5rem 1rem);
+              &:hover {
+                background-color: $color-grey-2;
+              }
+              &:active {
+                color: $color-green-1;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
