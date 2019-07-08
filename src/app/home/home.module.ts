@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { MaterialModule } from '../_material/material.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FontAwesomeModule } from 'ngx-icons';
 
@@ -11,9 +10,8 @@ import { FontAwesomeModule } from 'ngx-icons';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MaterialModule,
     BsDropdownModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
   ]
 })
 export class HomeModule { }

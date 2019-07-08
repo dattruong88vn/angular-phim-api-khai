@@ -1,12 +1,18 @@
 // COLOR
 $color-primary: #fb4226;
+$color-red-1: #a72b18;
 
+$color-white-0: #fff;
 $color-white-1: rgba(255,255,255,.95);
 
+$color-black-0: #000;
 $color-black-1: #333;
+$color-black-2:rgba(17, 27, 54, 0.5); 
+$color-black-3: rgba(0, 0, 0, 0.7);
 
 $color-grey-1: #9b9b9b;
 $color-grey-2: #f8f9fa;
+$color-grey-3:#ccc;
 
 $color-green-1: green;
 
@@ -19,8 +25,10 @@ $fs-xl: 3rem;
 $fs-xxl: 4rem;
 
 $fs-0-75: 0.75rem;
-$fs-0-90:0.9rem;
+$fs-0-90: 0.9rem;
+$fs-1-10: 1.1rem;
 $fs-1-25: 1.25rem;
+$fs-1-35:1.35rem;
 $fs-1-50: 1.5rem;
 $fs-1-75: 1.75rem;
 $fs-2-25: 2.25rem;
@@ -37,9 +45,16 @@ $fw-b: bold;
 $fw-bd: bolder;
 
 // SPACE
+$xx-small: 0.1rem;
 $x-small: 0.25rem;
 $small: 0.5rem;
 $medium: 1rem;
 $large: 2rem;
 $x-large:4rem;
 $xx-large: 8rem;
+
+// BORDER RADIUS
+$br-0: 3px;
+
+// LINE HEIGHT
+$lh-1-25: 1.25rem;

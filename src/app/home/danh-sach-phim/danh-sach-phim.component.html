@@ -1,0 +1,40 @@
+<!-- Nav tabs -->
+<div id="listPhim">
+  <div class="listPhim__container">
+    <div class="listPhim__title">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#phimDangChieu">ĐANG
+            CHIẾU</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#phimSapChieu">SẮP CHIẾU</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="listPhim__content">
+      <div class="tab-content">
+        <div class="tab-pane active" id="phimDangChieu">
+          <div class="row row-eq-height">
+            <div class="col-3 itemPhim" *ngFor="let phim of danhSachPhim; let
+              stt=
+              index">
+              <app-item-phim [phim]="phim"></app-item-phim>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="phimSapChieu">
+          <div class="row row-eq-height">
+            <div class="col-3 itemPhim" *ngFor="let phim of danhSachPhim; let
+              stt=
+              index">
+              <app-item-phim [phim]="phim"></app-item-phim>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

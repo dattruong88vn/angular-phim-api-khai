@@ -1,3 +1,46 @@
-<p>
-  trang-chu works!
-</p>
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a href="#">
+        <img src="/assets/img/god-15601537188192.jpg" alt="God"
+          width="1100" height="500">
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a href="#">
+        <img src="/assets/img/pets-2-15598811587741.jpg" alt="Pets"
+          width="1100" height="500">
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a href="#">
+        <img src="/assets/img/x-men-15598808044369.jpg" alt="X-men"
+          width="1100" height="500">
+      </a>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+    <!-- <span class="carousel-control-prev-icon"></span> -->
+    <i class="fa fa-chevron-left"></i>
+  </a>
+  <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+    <!-- <span class="carousel-control-next-icon"></span> -->
+    <i class="fa fa-chevron-right"></i>
+  </a>
+</div>
+
+<!-- Danh Sách Phim -->
+<app-danh-sach-phim></app-danh-sach-phim>
+

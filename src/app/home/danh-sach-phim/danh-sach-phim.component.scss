@@ -1,0 +1,52 @@
+@import "./../../_scss/variables.scss";
+@import "./../../_scss/mixin.scss";
+
+#listPhim {
+  .listPhim__container {
+    @include space(padding, all, $small);
+    @include screen(medium) {
+      @include space(padding, all, $medium);
+    }
+    @include screen(large) {
+      @include space(padding, all, $large);
+    }
+    .listPhim__title {
+      .nav-tabs {
+        display: flex;
+        justify-content: center;
+        border: unset;
+        @include space(padding, all, $medium);
+        .nav-item {
+          .nav-link {
+            @include text($color-black-0, $fs-1-25, $fw-5);
+            transition: 0.3s ease-out;
+            &:hover,
+            &.active {
+              border: unset;
+              @include text($color-primary, $fs-1-35, $fw-5);
+            }
+          }
+        }
+      }
+    }
+    .listPhim__content {
+      #phimDangChieu,
+      #phimSapChieu {
+        .row {
+          width: 100%;
+          margin: 0 auto;
+          @include screen(large) {
+            width: 85%;
+          }
+          @include screen(x-large) {
+            width: 70%;
+          }
+          .itemPhim {
+            @include space(padding, x, $small);
+            @include space(margin, bottom, $medium);
+          }
+        }
+      }
+    }
+  }
+}

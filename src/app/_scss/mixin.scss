@@ -58,12 +58,12 @@
   $large: "(min-width: 992px)";
   $extra-large: "(min-width: 1200px)";
 
-  @if $size == $extra-small {
+  @if $size == x-small {
     @media only screen and #{$extra-small} {
       @content;
     }
   }
-  @else if $size == $small {
+  @else if $size == small {
     @media only screen and #{$small} {
       @content;
     }
@@ -73,12 +73,12 @@
       @content;
     }
   }
-  @else if $size == $large {
+  @else if $size == large {
     @media only screen and #{$large} {
       @content;
     }
   }
-  @else if $size == $extra-large {
+  @else if $size == x-large {
     @media only screen and #{$extra-large} {
       @content;
     }

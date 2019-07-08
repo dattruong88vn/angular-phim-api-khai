@@ -1,0 +1,5 @@
+{
+    "scss.lint.argumentsInColorFunction": "ignore",
+    "scss.lint.emptyRules": "ignore",
+    "scss.lint.unknownProperties": "ignore"
+}
