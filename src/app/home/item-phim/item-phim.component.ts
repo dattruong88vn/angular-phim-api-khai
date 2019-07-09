@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ShareStoreService } from './../../_core/shared/ShareStore/share-store.service';
 
 @Component({
   selector: 'app-item-phim',
@@ -7,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemPhimComponent implements OnInit {
   @Input() phim;
-  constructor() { }
+
+  constructor(private shareStore: ShareStoreService) { }
 
   ngOnInit() {
-    console.log(this.phim);
   }
 
+  xemTrailer = (phim) => {
+    this.shareStore.sharingChiTietPhim(phim);
+  } 
 }

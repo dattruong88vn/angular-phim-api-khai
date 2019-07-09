@@ -32,18 +32,43 @@
     .listPhim__content {
       #phimDangChieu,
       #phimSapChieu {
-        .row {
-          width: 100%;
-          margin: 0 auto;
+        .carousel-inner {
+          .row {
+            width: 90%;
+            margin: 0 auto;
+            @include screen(large) {
+              width: 85%;
+            }
+            @include screen(x-large) {
+              width: 70%;
+            }
+            .itemPhim {
+              @include space(padding, x, $small);
+              @include space(margin, bottom, 0);
+            }
+          }
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+          width: 5%;
           @include screen(large) {
-            width: 85%;
+            width: 8%;
           }
           @include screen(x-large) {
-            width: 70%;
+            width: 15%;
           }
-          .itemPhim {
-            @include space(padding, x, $small);
-            @include space(margin, bottom, $medium);
+          i {
+            color: $color-grey-1;
+            &:hover {
+              color: $color-black-1;
+            }
+            &:active {
+              color: $color-primary;
+            }
+            font-size: $fs-lg;
+            @include screen(medium) {
+              font-size: $fs-xl;
+            }
           }
         }
       }

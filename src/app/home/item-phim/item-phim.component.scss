@@ -117,7 +117,9 @@
         display: block;
       }
       .itemPhim__play {
-        display: block;
+        @include screen(medium) {
+          display: block;
+        }
       }
     }
     .itemPhim__info {
