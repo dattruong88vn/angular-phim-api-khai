@@ -5,7 +5,9 @@
             <span>5</span>
             <img src="./assets/img/icon/star1.png" alt="">
         </div>
-        <div class="itemPhim__cover"></div>
+        <div 
+            class="itemPhim__cover" (click)="xemChiTietPhim()">
+        </div>
         <div class="itemPhim__play">
             <i
                 class="fa fa-play-circle"
@@ -17,7 +19,7 @@
     <div class="itemPhim__info">
         <p>{{phim.TenPhim}}</p>
         <span>150 phút - C18</span>
-        <div class="itemPhim__button">
+        <div class="itemPhim__button" (click)="xemChiTietPhim()">
             <button class="btn">MUA VÉ</button>
         </div>
     </div>

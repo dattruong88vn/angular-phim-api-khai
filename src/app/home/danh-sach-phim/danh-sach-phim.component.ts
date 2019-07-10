@@ -21,6 +21,7 @@ export class DanhSachPhimComponent implements OnInit {
     const url = 'QuanLyPhim/LayDanhSachPhim?MaNhom=GP09';
     this.phimService.getAPI(url).subscribe((data) => {
       this.danhSachPhim = data;
+      console.log(data);
       this.getCarousel();
     })
   }
@@ -35,7 +36,6 @@ export class DanhSachPhimComponent implements OnInit {
         count += 1;
       }
     })
-    console.log(this.mangCarousel);
   }
 
 }

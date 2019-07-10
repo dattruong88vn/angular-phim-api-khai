@@ -3,12 +3,19 @@
 
 #listPhim {
   .listPhim__container {
+    width: $w-xs;
+    margin: 0 auto;
     @include space(padding, all, $small);
     @include screen(medium) {
+      width: $w-md;
       @include space(padding, all, $medium);
     }
     @include screen(large) {
+      width: $w-lg;
       @include space(padding, all, $large);
+    }
+    @include screen(x-large) {
+      width: $w-xl;
     }
     .listPhim__title {
       .nav-tabs {
@@ -34,14 +41,11 @@
       #phimSapChieu {
         .carousel-inner {
           .row {
-            width: 90%;
+            width: $w-md;
+            @include screen(medium) {
+              width: $w-lg;
+            }
             margin: 0 auto;
-            @include screen(large) {
-              width: 85%;
-            }
-            @include screen(x-large) {
-              width: 70%;
-            }
             .itemPhim {
               @include space(padding, x, $small);
               @include space(margin, bottom, 0);

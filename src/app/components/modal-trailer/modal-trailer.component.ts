@@ -15,7 +15,6 @@ export class ModalTrailerComponent implements OnInit {
 
   ngOnInit() {
     this.shareStore.shareChiTietPhim.subscribe((phim: any) => {
-      console.log(phim);
       this.phimFromShareStore = phim;
       this.checkData(phim.Trailer);
     })

@@ -148,3 +148,135 @@
     }
   }
 }
+
+.home-footer {
+  background-color: $color-black-4;
+  .footer__container {
+    width: $w-xs;
+    margin: 0 auto;
+    color: $color-white-0;
+    @include space(padding, y, $medium);
+
+    @include screen(medium) {
+      width: $w-md;
+    }
+    @include screen(large) {
+      width: $w-lg;
+    }
+    @include screen(x-large) {
+      width: $w-xl;
+    }
+
+    .footer__thongtin {
+      .row {
+        width: 90%;
+        margin: 0 auto;
+        @include screen(medium){
+          width: 85%;
+        }
+        @include screen(large){
+          width: 100%;
+        }
+
+        .thongtin {
+          @include space(padding, x, $medium);
+
+          &.thongtin--1,
+          &.thongtin--3 {
+            display: none;
+            @include screen(large) {
+              display: block;
+            }
+          }
+          &.thongtin--2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            @include screen(large) {
+              display: unset;
+            }
+          }
+          &.thongtin--4 {
+            display: none;
+            @include screen(medium) {
+              display: block;
+              p {
+                display: none;
+                @include screen(large) {
+                  display: block;
+                }
+              }
+            }
+          }
+          &.thongtin--5 {
+            p {
+              display: none;
+              @include screen(large) {
+                display: block;
+              }
+            }
+          }
+          a {
+            text-decoration: none;
+          }
+          p {
+            font-size: $fs-0-70;
+            @include space(margin, bottom, $fs-0-70);
+          }
+          .footer__link__text {
+            @include text($color-grey-4, $fs-0-75, $fw-7);
+            @include space(margin, all, 5px);
+            line-height: 2.3;
+            display: block;
+            white-space: nowrap;
+            &:hover {
+              color: $color-white-0;
+              transition: all 0.2s;
+            }
+          }
+          .footer__link__icon {
+            display: inline-block;
+            width: 50px;
+            img {
+              height: 30px;
+              width: auto;
+              @include space(margin, all, 5px);
+            }
+          }
+        }
+      }
+    }
+    hr {
+      background-color: $color-white-0;
+      width: 100%;
+      @include space(margin, y, 20px);
+    }
+    .footer__congty {
+      text-align: center;
+      .logo__vinagame {
+        img {
+          width: 50px;
+          height: auto;
+          @include screen(large) {
+            width: 60px;
+          }
+          @include space(margin, bottom, $medium);
+        }
+      }
+      .thongtinCongty {
+        p {
+          font-size: $fs-0-75;
+          font-weight: $fw-4;
+          line-height: 1.8;
+          @include space(margin, bottom, $xx-small);
+        }
+      }
+      .logo__bocongthuong {
+        img {
+          width: 130px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
