@@ -27,9 +27,9 @@
           .nav-link {
             @include text($color-black-0, $fs-1-25, $fw-5);
             transition: 0.3s ease-out;
+            border: unset;
             &:hover,
             &.active {
-              border: unset;
               @include text($color-primary, $fs-1-35, $fw-5);
             }
           }
@@ -55,12 +55,6 @@
         .carousel-control-prev,
         .carousel-control-next {
           width: 5%;
-          @include screen(large) {
-            width: 8%;
-          }
-          @include screen(x-large) {
-            width: 15%;
-          }
           i {
             color: $color-grey-1;
             &:hover {

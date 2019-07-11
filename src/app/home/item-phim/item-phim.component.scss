@@ -51,21 +51,16 @@
       display: none;
       transition: 1s;
     }
-    .itemPhim__play {
+    .playVideo {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      background-color: Transparent;
+      border-color: transparent;
       display: none;
-      i {
-        @include text($color-white-0, $fs-lg, $fw-3);
-        @include screen(medium) {
-          @include text($color-white-0, $fs-xl, $fw-3);
-        }
-        &:hover {
-          color: $color-grey-3;
-        }
-      }
+      cursor: pointer;
+      z-index: 3;
     }
   }
   .itemPhim__info {
@@ -79,7 +74,7 @@
     @include screen(medium) {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      // justify-content: space-between;
     }
 
     p {
@@ -113,17 +108,20 @@
   &:hover {
     .itemPhim__img {
       .itemPhim__cover {
-        
         display: block;
       }
-      .itemPhim__play {
-        @include screen(medium) {
-          display: block;
-        }
+      .playVideo {
+        display: block;
       }
+      // .itemPhim__play {
+      //   @include screen(medium) {
+      //     display: block;
+      //   }
+      // }
     }
     .itemPhim__info {
-      p, span {
+      p,
+      span {
         display: none;
       }
       .itemPhim__button {
@@ -135,7 +133,7 @@
 
 @keyframes hoverButton {
   0% {
-    background-image: linear-gradient(to right, $color-red-1, $color-primary); 
+    background-image: linear-gradient(to right, $color-red-1, $color-primary);
     // width: 100%;
   }
   50% {
