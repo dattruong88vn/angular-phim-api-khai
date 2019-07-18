@@ -1,0 +1,58 @@
+@import './../../../assets/sass/variables.scss';
+@import './../../../assets/sass/mixin.scss';
+.rap-mobile {
+    .thong-tin-rap {
+        display: flex;
+        padding-bottom: 20px;
+        cursor: pointer;
+        img {
+            width: 50px;
+            height: 50px;
+        }
+        div {
+            padding-left: 10px;
+            height: 50px;
+            p {
+                margin: 0;
+            }
+            .tenRap {
+                span {
+                    color: $color-green-4;
+                }
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .diaChiRap {
+                font-size: 13px;
+                color: $color-grey-1;
+                line-height: 1.7;
+                span {
+                    color: $color-primary;
+                    font-size: 12px;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .thong-tin-gio-chieu {
+        transition: all 0.5s;
+        .list-gio-chieu {
+            display: flex;
+            padding-left: 10px;
+            img {
+                width: 30px;
+                height: 30px;
+                margin-right: 20px;
+            }
+            div {
+                a {
+                    float: left;
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #417500;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

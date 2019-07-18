@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShareStoreService } from './../../_core/shared/ShareStore/share-store.service';
+import { ShareStoreService } from 'src/app/_core/shared/ShareStore/share-store.service';
 
 @Component({
   selector: 'app-modal-trailer',
@@ -8,30 +8,29 @@ import { ShareStoreService } from './../../_core/shared/ShareStore/share-store.s
 })
 export class ModalTrailerComponent implements OnInit {
 
-  phimFromShareStore = {};
-  linkTrailer = '';
+  trailerLink = '';
+  status = false;
 
   constructor(private shareStore: ShareStoreService) { }
 
   ngOnInit() {
     this.shareStore.shareChiTietPhim.subscribe((phim: any) => {
-      this.phimFromShareStore = phim;
-      this.checkData(phim.Trailer);
+      this.status = this.loadingTrailer(phim.trailer);
     })
   }
 
-  checkData(data: string): boolean {
-    if (data === undefined) {
+  stopTrailer() {
+    this.trailerLink = '';
+  }
+
+  loadingTrailer(trailer: string): boolean {
+    if (trailer === undefined) {
       return false;
     }
     else {
-      this.linkTrailer = 'https://www.youtube.com/embed/' + data.slice(32);
+      this.trailerLink = trailer;
       return true;
     }
-  }
-
-  stopTrailer() {
-    this.linkTrailer = '';
   }
 
 }

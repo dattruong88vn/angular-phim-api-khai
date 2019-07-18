@@ -1,0 +1,16 @@
+<div class="he-thong-rap">
+    <div class='he-thong-rap-mobile'>
+        <ng-container *ngFor='let cumRap of danhSachHeThongRap'>
+            <div class='rap'>
+                <a data-toggle="collapse" [attr.data-target]="'#' + cumRap.maHeThongRap">
+                    <img [src]="cumRap.logo" alt="">
+                    <p>{{cumRap.tenHeThongRap}}</p>
+                </a>
+            </div>
+            <div [id]="cumRap.maHeThongRap" class="collapse chiTietRap">
+                <app-cum-rap [heThongRap]='cumRap' [chosenDate]='chosenDate' [maPhim]='maPhim'></app-cum-rap>
+            </div>
+        </ng-container>
+    </div>
+    <div class='he-thong-rap-desktop'></div>
+</div>

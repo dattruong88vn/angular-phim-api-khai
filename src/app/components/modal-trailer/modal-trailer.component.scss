@@ -1,16 +1,16 @@
-@import "./../../_scss/variables.scss";
-@import "./../../_scss/mixin.scss";
-
+@import "./../../../assets/sass/variables.scss";
+@import "./../../../assets/sass/mixin.scss";
 .modal {
     padding: 0 !important;
-  .modal-dialog {
-      max-width: 560px;
-      margin: $large auto;
-    .modal-content {
-        background-color: transparent;
-        .modal-body {
-            @include space(padding, all, 0);
+    .modal-dialog {
+        max-width: 560px;
+        margin: $large auto;
+        .modal-content {
+            background-color: transparent;
+            border: unset;
+            .modal-body {
+                @include space(padding, all, 0);
+            }
         }
     }
-  }
 }

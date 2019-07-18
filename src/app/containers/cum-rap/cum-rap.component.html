@@ -1,0 +1,6 @@
+<!-- Cụm rạp đại diện cho một hệ thống như BHD, CGV... -->
+<div class="cum-rap">
+    <div *ngFor='let rap of danhSachCumRap' class='cum-rap-mobile'>
+        <app-rap [rap]='rap' [chosenDate]='chosenDate' [maPhim]='maPhim'></app-rap>
+    </div>
+</div>

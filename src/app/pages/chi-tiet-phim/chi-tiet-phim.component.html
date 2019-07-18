@@ -1,0 +1,145 @@
+<router-outlet></router-outlet>
+<div class="phim">
+    <div class="phim-container">
+        <div class="phim__top">
+            <!-- image background -->
+            <img [src]="phimDetail.hinhAnh" alt="">
+
+            <!-- button play trailer -->
+            <button type="button" class="playVideo" data-toggle="modal" data-target="#modalTrailer" (click)='xemTrailer()'>
+                <img src="./../../../assets/img/icon/play-video.png" alt="">
+            </button>
+
+            <!-- layout cover background: linear gradient -->
+            <div class="phim__top__cover"></div>
+
+            <!-- info show on desktop -->
+            <div class="info-desktop">
+                <div class="col-md-3 info-desktop-left">
+                    <div class="row m-0">
+                        <img [src]="phimDetail.hinhAnh" alt="">
+                    </div>
+                    <div class="desktop-left-hover"></div>
+                    <button type="button" class="playVideo" data-toggle="modal" data-target="#modalTrailer" (click)='xemTrailer()'>
+                        <img src="./../../../assets/img/icon/play-video.png" alt="">
+                    </button>
+                </div>
+
+                <div class="col-md-5 info-desktop-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="ngayKhoiChieu">
+                                <span>{{phimDetail.ngayKhoiChieu | date:'dd.MM.yyyy'}}</span>
+                            </div>
+                            <div>
+                                <span class="tenPhim">{{phimDetail.tenPhim}}</span>
+                            </div>
+                            <div class="thoiLuong">
+                                <span>92 phút - 2D/Digital</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn">Mua Vé</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rating -->
+                <div class="col-md-2 info-desktop-right" *ngIf='isShowRating'>
+                    <circle-progress [percent]="rating" [radius]="50" [outerStrokeWidth]="8" [innerStrokeWidth]="5" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300" [title]="phimDetail.danhGia" [titleColor]="'#9b9b9b'"
+                        [titleFontSize]="'35'" [titleFontWeight]="'500'" [showSubtitle]="false" [showUnits]="false" [lazy]='false'>
+                    </circle-progress>
+                    <div class="numberStar row">
+                        <img src="./../../../assets/img/icon/star1.png" alt="" *ngFor='let item of arrStar'>
+                        <img src="./../../../assets/img/icon/star1.2.png" alt="" *ngIf='halfStar'>
+                    </div>
+                    <p>180 lượt đánh giá</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="phim__bottom">
+            <div class="bottom-container">
+                <!-- Info on mobile -->
+                <div class="info-mobile">
+                    <div class="row mx-0">
+                        <div class="col-sm-12">
+                            <div>
+                                <span>{{phimDetail.ngayKhoiChieu | date:'dd.MM.yyyy'}}</span>
+                            </div>
+                            <div>
+                                <span class="tenPhim">{{phimDetail.tenPhim}}</span>
+                            </div>
+                            <div>
+                                <span>{{phimDetail.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim[0].thoiLuong}} phút</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- nav-tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#LichChieu">Lịch
+                            Chiếu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#ThongTin">Thông Tin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#DanhGia">Đánh Giá</a>
+                    </li>
+                </ul>
+                <!-- tab-content -->
+                <div class="tab-content">
+                    <div class="tab-pane active nav-lich-chieu" id="LichChieu">
+                        <div class="lich-chieu-container">
+                            <div class="date-of-week">
+                                <ng-container *ngFor="let date of arrDate">
+                                    <div [ngClass]="date.status ? 'date-item active' : 'date-item'" (click)='selectDay(date)'>
+                                        <p class="thu">{{date.thu}}</p>
+                                        <p class="ngay">{{date.ngay}}</p>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <!-- hệ thống rạp -->
+                            <app-he-thong-rap style="width: 100%" [chosenDate]='chosenDate' [maPhim]='phimDetail.maPhim'></app-he-thong-rap>
+                        </div>
+                    </div>
+                    <!-- tab thông tin phim -->
+                    <div class="tab-pane container fade nav-thong-tin" id="ThongTin">
+                        <div class="row">
+                            <div class="col-12 col-md-6 my-2 thong-tin-chung">
+                                <div class="row">
+                                    <div class="col-6">Ngày phát hành</div>
+                                    <div class="col-6">{{phimDetail.ngayKhoiChieu | date:'dd.MM.yyyy'}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">Đạo diễn</div>
+                                    <div class="col-6">Jon Watts</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">Diễn viên</div>
+                                    <div class="col-6">Cobie Smulders, Marisa Tomei, Jon Favreau, Samuel L. Jackson, Zendaya, Jake Gyllenhaal, Tom Holland
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">Quốc Gia SX</div>
+                                    <div class="col-6">Mỹ</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 my-2 noidung">
+                                <div class="row">
+                                    <div class="col-12">Nội dung</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">{{phimDetail.moTa}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal trailer -->
+<app-modal-trailer></app-modal-trailer>

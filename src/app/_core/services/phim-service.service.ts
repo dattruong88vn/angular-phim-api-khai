@@ -7,8 +7,8 @@ import { tap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PhimService {
-
-  api: string = 'http://svcy2.myclass.vn/api/';
+  api: string = 'http://movie0706.cybersoft.edu.vn/api/';
+  // api: string = 'http://svcy2.myclass.vn/api/';
 
   constructor(private http: HttpClient) { }
 

@@ -1,0 +1,338 @@
+@import "./../../../assets/sass/variables.scss";
+@import "./../../../assets/sass/mixin.scss";
+.phim {
+    .phim-container {
+        .phim__top {
+            position: relative;
+            &>img {
+                width: 100%;
+                vertical-align: middle;
+                max-height: 300px;
+                @include screen(medium) {
+                    max-height: 500px;
+                    filter: blur(15px);
+                }
+            }
+            .playVideo {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: Transparent;
+                border-color: transparent;
+                display: block;
+                @include screen(medium) {
+                    display: none;
+                }
+                cursor: pointer;
+                z-index: 3;
+            }
+            .phim__top__cover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to top, $color-green-2, transparent 100%);
+            }
+            .info-desktop {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                max-width: 870px;
+                z-index: 500;
+                clear: both;
+                display: none;
+                @include screen(medium) {
+                    display: flex;
+                }
+                .info-desktop-left {
+                    position: relative;
+                    padding: 0;
+                    img {
+                        width: 100%;
+                        border-radius: 4px;
+                    }
+                    .desktop-left-hover {
+                        position: absolute;
+                        top: 0;
+                        width: 0;
+                        height: 0;
+                        background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+                        border-radius: 4px;
+                    }
+                    .playVideo {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: Transparent;
+                        border-color: transparent;
+                        display: none;
+                        cursor: pointer;
+                        z-index: 3;
+                    }
+                    &:hover {
+                        .desktop-left-hover {
+                            transition: 0.1s ease all;
+                            width: 100%;
+                            height: 100%;
+                        }
+                        .playVideo {
+                            display: block;
+                        }
+                    }
+                }
+                .info-desktop-center {
+                    margin-right: auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .ngayKhoiChieu {
+                        @include text($color-grey-5, $fs-0-90, normal);
+                    }
+                    .tenPhim {
+                        @include text($color-grey-5, $fs-1-50, normal);
+                    }
+                    .thoiLuong {
+                        @include text($color-grey-5, $fs-0-90, normal);
+                    }
+                    button {
+                        font-size: $fs-md;
+                        border-radius: 4px;
+                        text-align: center;
+                        background: 0 0;
+                        @include space(padding, all, 7px 25px);
+                        transition: all 0.2s;
+                        @include space(margin, top, 25px);
+                        @include space(margin, bottom, 20px);
+                        background-color: $color-primary;
+                        border: none;
+                        color: $color-white-0;
+                        &:hover {
+                            background-color: $color-red-2;
+                        }
+                    }
+                }
+                .info-desktop-right {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .numberStar {
+                        img {
+                            max-width: 25px;
+                        }
+                    }
+                    p {
+                        font-size: $fs-0-90;
+                        color: $color-white-0;
+                        margin: 10px 0 0 0;
+                    }
+                }
+            }
+        }
+        .phim__bottom {
+            background: $color-green-2;
+            position: relative;
+            .bottom-container {
+                max-width: 870px;
+                margin: 0 auto;
+                .info-mobile {
+                    font-size: $fs-0-90;
+                    color: $color-grey-1;
+                    @include screen(medium) {
+                        display: none;
+                    }
+                    .tenPhim {
+                        color: $color-white-0;
+                        font-size: $fs-1-35;
+                    }
+                }
+                .nav-tabs {
+                    display: flex;
+                    justify-content: center;
+                    border: unset;
+                    padding: unset;
+                    @include space(padding, all, $medium);
+                    .nav-item {
+                        .nav-link {
+                            font-size: $fs-md;
+                            font-weight: $fw-5;
+                            color: $color-white-0;
+                            transition: 0.3s ease-out;
+                            border: unset;
+                            background: inherit;
+                            @include screen(medium) {
+                                font-size: $fs-1-25;
+                            }
+                            &.active {
+                                color: $color-primary;
+                            }
+                        }
+                    }
+                }
+                .tab-content {
+                    padding: $large 0;
+                    .nav-lich-chieu {
+                        background-color: $color-white-0;
+                        .lich-chieu-container {
+                            display: flex;
+                            flex-wrap: wrap;
+                            .date-of-week {
+                                display: flex;
+                                width: 100%;
+                                padding: $medium 0;
+                                border-bottom: 1px solid $color-grey-6;
+                                .date-item {
+                                    width: calc(100% / 7);
+                                    text-align: center;
+                                    cursor: pointer;
+                                    .thu {
+                                        margin: 0;
+                                        font-size: $fs-0-90;
+                                    }
+                                    .ngay {
+                                        margin: 0;
+                                        font-size: $fs-1-10;
+                                    }
+                                    &.active {
+                                        color: $color-primary;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                            .rap-suat-chieu {
+                                width: 100%;
+                                .he-thong-rap {
+                                    padding: 0;
+                                    @include screen(medium) {
+                                        border-right: 1px solid $color-grey-6;
+                                    }
+                                    ul {
+                                        width: 100%;
+                                        padding: 0;
+                                        margin: 0;
+                                        li {
+                                            display: block;
+                                            a {
+                                                display: block;
+                                                padding: $fs-1-25;
+                                                text-decoration: none;
+                                                position: relative;
+                                                &::after {
+                                                    content: "";
+                                                    position: absolute;
+                                                    bottom: 0;
+                                                    left: 50%;
+                                                    width: calc(100% - 40px);
+                                                    transform: translateX(-50%);
+                                                    border-bottom: 1px solid #ccc;
+                                                    border-color: rgba(238, 238, 238, 0.88);
+                                                }
+                                                img {
+                                                    width: 50px;
+                                                    margin-right: 10px;
+                                                }
+                                                p {
+                                                    display: inline-block;
+                                                    color: $color-black-0;
+                                                }
+                                            }
+                                            &:hover,
+                                            &:active {
+                                                background-color: $color-grey-6;
+                                            }
+                                        }
+                                    }
+                                }
+                                .suat-chieu {
+                                    padding: 0;
+                                    position: relative;
+                                    overflow-y: scroll;
+                                    &::after {
+                                        content: "";
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 50%;
+                                        width: calc(100% - 40px);
+                                        transform: translateX(-50%);
+                                        border-bottom: 1px solid #ccc;
+                                        border-color: rgba(238, 238, 238, 0.88);
+                                    }
+                                    .panel-group {
+                                        .panel-heading {
+                                            .thong-tin-rap {
+                                                display: flex;
+                                                padding: $fs-1-25;
+                                                img {
+                                                    width: 50px;
+                                                }
+                                                .wrapInfo {
+                                                    height: 50px;
+                                                    padding-left: $fs-0-75;
+                                                    display: flex;
+                                                    flex-direction: column;
+                                                    justify-content: center;
+                                                    .addInfo {
+                                                        font-size: $fs-0-75;
+                                                        color: $color-grey-1;
+                                                        margin: 0;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .panel-body {
+                                            .list-suat-chieu {
+                                                padding: $fs-1-25;
+                                                border-bottom: 1px solid $color-grey-6;
+                                                img {
+                                                    width: 40px;
+                                                    padding-left: $small;
+                                                    height: auto;
+                                                }
+                                                .chi-tiet {
+                                                    display: flex;
+                                                    flex-wrap: wrap;
+                                                    a {
+                                                        text-decoration: none;
+                                                        @include text($color-green-2, $fs-1-50, $fw-4);
+                                                        margin: 0 10px 15px 0;
+                                                        line-height: 24px;
+                                                        &:hover {
+                                                            color: $color-primary;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .nav-thong-tin {
+                        color: $color-white-0;
+                        .thong-tin-chung {
+                            display: flex;
+                            flex-direction: column;
+                            .row {
+                                margin: $fs-0-75;
+                                font-size: $fs-0-90;
+                            }
+                        }
+                        .noidung {
+                            display: flex;
+                            flex-direction: column;
+                            .row {
+                                margin: $fs-0-75;
+                                font-size: $fs-0-90;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
