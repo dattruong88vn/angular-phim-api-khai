@@ -25,17 +25,18 @@ export class ChiTietPhimComponent implements OnInit {
     heThongRapChieu: [
       {
         cumRapChieu: [
-            {
-              lichChieuPhim: [
-                { 
-                  thoiLuong: 0 
-                }
-              ]
-            }
-          ]
+          {
+            lichChieuPhim: [
+              {
+                thoiLuong: 0
+              }
+            ]
+          }
+        ]
       }
     ]
   };
+  heThongRapChieu: any;
 
   isShowRating = true; // show icon rating hay ko?
 
@@ -48,7 +49,7 @@ export class ChiTietPhimComponent implements OnInit {
   arrDate = [];
 
   // Ngày được chọn để truyền xuống Component HeThongPhim, mặc định là ngày hôm nay
-  chosenDate = new Date();
+  chosenDate = new Date('01 January 2019 UTC');
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -78,6 +79,8 @@ export class ChiTietPhimComponent implements OnInit {
     const url = `QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${ma}`;
     this.phimService.getAPI(url).subscribe((data) => {
       this.phimDetail = data;
+      this.heThongRapChieu = data.heThongRapChieu;
+      console.log(data.heThongRapChieu);
       this.rating = this.phimDetail.danhGia * 100 / 5;
       this.showStarRating();
     })
@@ -133,8 +136,9 @@ export class ChiTietPhimComponent implements OnInit {
   }
 
   getNext7Date = () => {
-    let today = new Date();
-    this.arrDate.push({fullDate: today, ngay: today.getDate(), thu: this.getDayName(today), status: true });
+     // let today = new Date();  // Chọn ngày hiện tại
+    let today = new Date(2019, 0, 1); // chọn ngày 01-01-2019
+    this.arrDate.push({ fullDate: today, ngay: today.getDate(), thu: this.getDayName(today), status: true });
 
     for (let i = 1; i < 7; i++) {
       /*
@@ -143,7 +147,11 @@ export class ChiTietPhimComponent implements OnInit {
         B3: today.getDate() + i                  : cộng thêm số ngày tiếp theo vào ngày hiện tại (ví dụ: 18 + 22 = 40  --> 40 ngày sau ngày hiện tại
         B4: today.setDate(today.getDate() + i)   : gán lại [ngày tháng của (ngày sau ngày hôm nay 40 ngày)] vào biến today
       */
-      let day = new Date();
+     /*
+        Do API chỉ có lịch chiếu ngày 01-01-2019 nên phải điều chỉnh về đúng ngày này
+     */
+      // let day = new Date();  // Chọn ngày hiện tại
+      let day = new Date(2019, 0, 1);
       day.setDate(day.getDate() + i);
       let day_name = '';
 

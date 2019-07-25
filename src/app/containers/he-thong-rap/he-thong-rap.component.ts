@@ -8,22 +8,40 @@ import { PhimService } from 'src/app/_core/services/phim-service.service';
 })
 export class HeThongRapComponent implements OnInit {
   @Input() chosenDate;
-  @Input() maPhim;
+  @Input() maPhim: number;
+  @Input() heThongRapChieu;
 
   danhSachHeThongRap = [];
+  dsRapAvailable = [];
+  cumRapChieu: any;
 
   constructor(
     private phimService: PhimService
   ) { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.getHeThongRap();
+  }
+
+  ngOnInit() {
   }
 
   getHeThongRap() {
     const url = 'QuanLyRap/LayThongTinHeThongRap';
     this.phimService.getAPI(url).subscribe((data: any) => {
       this.danhSachHeThongRap = data;
+      this.showHeThongRapChieu();
+    })
+  }
+  showHeThongRapChieu() {
+    this.dsRapAvailable = [];
+    this.danhSachHeThongRap.forEach(item => {
+      if (this.heThongRapChieu !== undefined) {
+        let index = this.heThongRapChieu.findIndex(ht => ht.maHeThongRap === item.maHeThongRap);
+        if (index !== -1) {
+          this.dsRapAvailable.push(item);
+        }
+      }
     })
   }
 

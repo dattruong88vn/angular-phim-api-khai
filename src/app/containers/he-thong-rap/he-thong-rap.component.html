@@ -1,6 +1,6 @@
 <div class="he-thong-rap">
     <div class='he-thong-rap-mobile'>
-        <ng-container *ngFor='let cumRap of danhSachHeThongRap'>
+        <ng-container *ngFor='let cumRap of dsRapAvailable; let sttcumRapMobile = index'>
             <div class='rap'>
                 <a data-toggle="collapse" [attr.data-target]="'#' + cumRap.maHeThongRap">
                     <img [src]="cumRap.logo" alt="">
@@ -8,9 +8,46 @@
                 </a>
             </div>
             <div [id]="cumRap.maHeThongRap" class="collapse chiTietRap">
-                <app-cum-rap [heThongRap]='cumRap' [chosenDate]='chosenDate' [maPhim]='maPhim'></app-cum-rap>
+                <app-cum-rap [maHeThongRap]='cumRap.maHeThongRap' [chosenDate]='chosenDate' [maPhim]='maPhim'></app-cum-rap>
             </div>
         </ng-container>
     </div>
-    <div class='he-thong-rap-desktop'></div>
+
+    <div class='he-thong-rap-desktop'>
+        <ul class="nav nav-tab flex-column rap">
+            <ng-container *ngFor='let cumRap of dsRapAvailable; let stt = index'>
+                <li class="nav-item">
+                    <ng-container *ngIf='stt === 0; else cumRapDesktop'>
+                        <a class="nav-link active" [attr.data-target]="'#' + cumRap.maHeThongRap + 'Desktop'"
+                            data-toggle="tab">
+                            <img [src]="cumRap.logo" alt="">
+                            <p>{{cumRap.tenHeThongRap}}</p>
+                        </a>
+                    </ng-container>
+                    <ng-template #cumRapDesktop>
+                        <a class="nav-link" [attr.data-target]="'#' + cumRap.maHeThongRap + 'Desktop'"
+                            data-toggle="tab">
+                            <img [src]="cumRap.logo" alt="">
+                            <p>{{cumRap.tenHeThongRap}}</p>
+                        </a>
+                    </ng-template>
+                </li>
+
+            </ng-container>
+        </ul>
+        <div class="tab-content">
+            <ng-container *ngFor='let cumRap of dsRapAvailable; let stt = index'>
+                <ng-container *ngIf='stt === 0; else tabPane2'>
+                    <div class="tab-pane container active" [id]="cumRap.maHeThongRap + 'Desktop'">
+                        <app-cum-rap [maHeThongRap]='cumRap.maHeThongRap' [chosenDate]='chosenDate' [maPhim]='maPhim'></app-cum-rap>
+                    </div>
+                </ng-container>
+                <ng-template #tabPane2>
+                    <div class="tab-pane container fade" [id]="cumRap.maHeThongRap + 'Desktop'">
+                        <app-cum-rap [maHeThongRap]='cumRap.maHeThongRap' [chosenDate]='chosenDate' [maPhim]='maPhim'></app-cum-rap>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </div>
+    </div>
 </div>

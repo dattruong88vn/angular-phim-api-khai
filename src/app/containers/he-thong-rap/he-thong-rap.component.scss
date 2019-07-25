@@ -1,41 +1,87 @@
-@import './../../../assets/sass/variables.scss';
-@import './../../../assets/sass/mixin.scss';
+@import "./../../../assets/sass/variables.scss";
+@import "./../../../assets/sass/mixin.scss";
 .he-thong-rap {
-    .he-thong-rap-mobile {
-        @include screen(medium) {
-            display: none;
-        }
-        .rap {
-            padding: 20px;
-            position: relative;
-            a {
-                display: block;
-                text-decoration: none;
-                color: #000;
-                cursor: pointer;
-                img {
-                    width: 50px;
-                    height: 50px;
-                    margin-right: 10px;
-                }
-                p {
-                    display: inline-block;
-                    font-weight: 600;
-                }
-                &::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    width: calc(100% - 40px);
-                    transform: translateX(-50%);
-                    border-bottom: 1px solid #ccc;
-                    border-color: rgba(238, 238, 238, .88);
-                }
-            }
-        }
-        .chiTietRap {
-            transition: all 0.5s;
-        }
+  border: 1px solid #ccc;
+  border-color: rgba(238, 238, 238, 0.88);
+  .he-thong-rap-mobile {
+    @include screen(medium) {
+      display: none;
     }
+    .rap {
+      padding: 20px;
+      position: relative;
+      a {
+        display: block;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+        img {
+          width: 50px;
+          height: 50px;
+          margin-right: 10px;
+        }
+        p {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: calc(100% - 40px);
+          transform: translateX(-50%);
+          border-bottom: 1px solid #ccc;
+          border-color: rgba(238, 238, 238, 0.88);
+        }
+      }
+    }
+    .chiTietRap {
+      transition: all 0.5s;
+    }
+  }
+  .he-thong-rap-desktop {
+    display: none;
+    @include screen(medium) {
+      display: flex;
+    }
+    .rap {
+      border-right: 1px solid #ccc;
+      border-color: rgba(238, 238, 238, 0.88);
+      a {
+        padding: 20px;
+        position: relative;
+        display: block;
+        text-decoration: none;
+        color: #000;
+        opacity: 0.5;
+        &.active {
+          opacity: 1;
+        }
+        cursor: pointer;
+        img {
+          width: 50px;
+          height: 50px;
+          margin-right: 10px;
+        }
+        p {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: calc(100% - 40px);
+          transform: translateX(-50%);
+          border-bottom: 1px solid #ccc;
+          border-color: rgba(238, 238, 238, 0.88);
+        }
+      }
+    }
+    .tab-content {
+        max-width: 65%;
+    }
+  }
 }

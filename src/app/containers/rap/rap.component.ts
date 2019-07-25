@@ -7,23 +7,43 @@ import { PhimService } from 'src/app/_core/services/phim-service.service';
   styleUrls: ['./rap.component.scss']
 })
 export class RapComponent implements OnInit {
-  @Input() rap;
+  @Input() cumRap;
   @Input() chosenDate;
   @Input() maPhim;
   
+  dsSuatChieu = [];
+
   constructor(
     private phimService: PhimService
   ) { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.layLichChieuPhim();
   }
 
+  ngOnInit() {
+    
+  }
+
   layLichChieuPhim() {
-    // const url = `QuanLyRap/LayThongTinLichChieuPhim?MaPhim=1331`;
-    const url = 'QuanLyPhim/LayDanhSachPhimTheoNgay?maNhom=GP03&tenPhim=Home&soTrang=1&soPhanTuTrenTrang=10';
+    const url = `QuanLyPhim/LayThongTinPhim?MaPhim=${this.maPhim}`;
     this.phimService.getAPI(url).subscribe((data: any) => {
+      this.layLichChieuCumRap(data.lichChieu);
+      console.log(data.lichChieu);
     })
+  }
+
+  layLichChieuCumRap(lichChieu) {
+    let dateLuaChon = this.chosenDate.toISOString().slice(0, 19).replace(/-/g, "-").replace("T", " ").slice(0, 10);
+    this.dsSuatChieu = [];
+    lichChieu.map(item => {
+      let date = item.ngayChieuGioChieu.slice(0, 10);
+      if (dateLuaChon === date && this.cumRap.maCumRap === item.thongTinRap.maCumRap) {
+        let suatChieu = item.ngayChieuGioChieu.slice(11, 16);
+        this.dsSuatChieu.push(suatChieu);
+      }
+    })
+    console.log(this.dsSuatChieu);
   }
 
 }

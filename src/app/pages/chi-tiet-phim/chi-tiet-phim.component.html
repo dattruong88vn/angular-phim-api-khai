@@ -6,7 +6,8 @@
             <img [src]="phimDetail.hinhAnh" alt="">
 
             <!-- button play trailer -->
-            <button type="button" class="playVideo" data-toggle="modal" data-target="#modalTrailer" (click)='xemTrailer()'>
+            <button type="button" class="playVideo" data-toggle="modal" data-target="#modalTrailer"
+                (click)='xemTrailer()'>
                 <img src="./../../../assets/img/icon/play-video.png" alt="">
             </button>
 
@@ -20,7 +21,8 @@
                         <img [src]="phimDetail.hinhAnh" alt="">
                     </div>
                     <div class="desktop-left-hover"></div>
-                    <button type="button" class="playVideo" data-toggle="modal" data-target="#modalTrailer" (click)='xemTrailer()'>
+                    <button type="button" class="playVideo" data-toggle="modal" data-target="#modalTrailer"
+                        (click)='xemTrailer()'>
                         <img src="./../../../assets/img/icon/play-video.png" alt="">
                     </button>
                 </div>
@@ -35,7 +37,8 @@
                                 <span class="tenPhim">{{phimDetail.tenPhim}}</span>
                             </div>
                             <div class="thoiLuong">
-                                <span>92 phút - 2D/Digital</span>
+                                <span>{{phimDetail.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim[0].thoiLuong}}
+                                    phút</span>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -45,8 +48,11 @@
                 </div>
                 <!-- Rating -->
                 <div class="col-md-2 info-desktop-right" *ngIf='isShowRating'>
-                    <circle-progress [percent]="rating" [radius]="50" [outerStrokeWidth]="8" [innerStrokeWidth]="5" [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300" [title]="phimDetail.danhGia" [titleColor]="'#9b9b9b'"
-                        [titleFontSize]="'35'" [titleFontWeight]="'500'" [showSubtitle]="false" [showUnits]="false" [lazy]='false'>
+                    <circle-progress [percent]="rating" [radius]="50" [outerStrokeWidth]="8" [innerStrokeWidth]="5"
+                        [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
+                        [animationDuration]="300" [title]="phimDetail.danhGia" [titleColor]="'#9b9b9b'"
+                        [titleFontSize]="'35'" [titleFontWeight]="'500'" [showSubtitle]="false" [showUnits]="false"
+                        [lazy]='false'>
                     </circle-progress>
                     <div class="numberStar row">
                         <img src="./../../../assets/img/icon/star1.png" alt="" *ngFor='let item of arrStar'>
@@ -70,7 +76,8 @@
                                 <span class="tenPhim">{{phimDetail.tenPhim}}</span>
                             </div>
                             <div>
-                                <span>{{phimDetail.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim[0].thoiLuong}} phút</span>
+                                <span>{{phimDetail.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim[0].thoiLuong}}
+                                    phút</span>
                             </div>
                         </div>
                     </div>
@@ -94,14 +101,15 @@
                         <div class="lich-chieu-container">
                             <div class="date-of-week">
                                 <ng-container *ngFor="let date of arrDate">
-                                    <div [ngClass]="date.status ? 'date-item active' : 'date-item'" (click)='selectDay(date)'>
+                                    <div [ngClass]="date.status ? 'date-item active' : 'date-item'"
+                                        (click)='selectDay(date)'>
                                         <p class="thu">{{date.thu}}</p>
                                         <p class="ngay">{{date.ngay}}</p>
                                     </div>
                                 </ng-container>
                             </div>
                             <!-- hệ thống rạp -->
-                            <app-he-thong-rap style="width: 100%" [chosenDate]='chosenDate' [maPhim]='phimDetail.maPhim'></app-he-thong-rap>
+                            <app-he-thong-rap style="width: 100%" [chosenDate]='chosenDate' [maPhim]='phimDetail.maPhim' [heThongRapChieu]='heThongRapChieu'></app-he-thong-rap>
                         </div>
                     </div>
                     <!-- tab thông tin phim -->
@@ -118,7 +126,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">Diễn viên</div>
-                                    <div class="col-6">Cobie Smulders, Marisa Tomei, Jon Favreau, Samuel L. Jackson, Zendaya, Jake Gyllenhaal, Tom Holland
+                                    <div class="col-6">Cobie Smulders, Marisa Tomei, Jon Favreau, Samuel L. Jackson,
+                                        Zendaya, Jake Gyllenhaal, Tom Holland
                                     </div>
                                 </div>
                                 <div class="row">

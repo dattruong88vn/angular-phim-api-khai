@@ -1,6 +1,16 @@
 <!-- Cụm rạp đại diện cho một hệ thống như BHD, CGV... -->
 <div class="cum-rap">
-    <div *ngFor='let rap of danhSachCumRap' class='cum-rap-mobile'>
-        <app-rap [rap]='rap' [chosenDate]='chosenDate' [maPhim]='maPhim'></app-rap>
+    <div *ngFor='let cumRap of danhSachCumRap' class='cum-rap-mobile'>
+        <div class="thong-tin-cum-rap" data-toggle="collapse" [attr.data-target]="'#' + cumRap.maCumRap">
+            <img src="https://s3img.vcdn.vn/123phim/2018/09/bhd-star-vincom-3-2-15379527367766.jpg" alt="">
+            <div>
+                <p class='tenRap'>{{cumRap.tenCumRap}}</p>
+                <p class='diaChiRap'>
+                    {{cumRap.diaChi}}
+                    <span>[Bản đồ]</span>
+                </p>
+            </div>
+        </div>
+        <app-rap [cumRap]='cumRap' [chosenDate]='chosenDate' [maPhim]='maPhim'></app-rap>
     </div>
 </div>

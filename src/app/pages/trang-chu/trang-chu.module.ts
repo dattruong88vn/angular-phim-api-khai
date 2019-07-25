@@ -4,7 +4,7 @@ import { TrangChuComponent } from './trang-chu.component';
 import { TrangChuRoutingModule } from './trang-chu-routing.module';
 import { DanhSachPhimModule } from 'src/app/containers/danh-sach-phim/danh-sach-phim.module';
 import { ShareModuleModule } from 'src/app/_core/shared/share-module/share-module.module';
-import { CumRapModule } from 'src/app/containers/cum-rap/cum-rap.module';
+import { HeThongRapModule } from 'src/app/containers/he-thong-rap/he-thong-rap.module';
 
 @NgModule({
   declarations: [TrangChuComponent],
@@ -13,7 +13,7 @@ import { CumRapModule } from 'src/app/containers/cum-rap/cum-rap.module';
     TrangChuRoutingModule,
     DanhSachPhimModule,
     ShareModuleModule,
-    CumRapModule
+    HeThongRapModule
   ]
 })
 export class TrangChuModule { }
